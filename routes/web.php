@@ -1,28 +1,27 @@
 <?php
+// Route::get('url' , 'action ') ;
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
-// http://localhost:0000/welcome/to/laravel?new=1
-//  MVC 
+// Route::get('/', function () {
+//     return Route('ABC');
+// });
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/' , [HomeController::class, 'index'])->name('home');
+
+
+Route::get('/about', function () {
+    return 'Welcome to my about page';
 });
+Route::get('/contact', function () {
+    return 'Welcome to my contact page';
+})->name('ABC');
 
+Route::get('/blog{id}', function ($id) {
 
-// request Methods
-Route::get('/welcome/to/laravel', 'App\Http\Controllers\WelcomeController@welcome');
-// route::post();
-// route::delete();
-// route::put();
-// route::options();
-// route::patch();
+    return 'Blog number #' . $id;
 
-// other Helper methods 
-// Route::view();
-// route::group();
-// Route::redirect();
-// Route::resource();
-// Route::apiResource();
+});
 
 
