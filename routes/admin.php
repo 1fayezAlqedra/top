@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix("admin")->group(function () { });
-Route::get("/", function () {
+Route::get(<?php echo route ('test.home') ?>, function () {
     return 'admin page ';
 });
 Route::get("/dashbord", function () {
